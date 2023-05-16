@@ -38,7 +38,7 @@ export const HeaderFooter = ({ children }) => {
           <div className="flex text-blue-300 justify-between items-center sm:pl-[23px] sm:pr-[74px] px-[10px] sm:px-[20px] py-[31px]">
             <div
               onClick={() => navigate("/")}
-              className="flex items-center gap-[10px]"
+              className="flex items-center gap-[10px] cursor-pointer"
             >
               <img src={titleLogo} alt="" />
               <h2 className="md:text-[32px] text-[28px] font-[800] text-[#D62D30]">
