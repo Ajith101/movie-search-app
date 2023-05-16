@@ -4,10 +4,20 @@ export const themeProvider = createContext();
 
 export const ThemeContext = ({ children }) => {
   // toogle night mode
-  const [theme, setTheme] = useState("dark");
+
+  const localTheme = () => {
+    const getLocalStorageTheme = localStorage.getItem("theme");
+    if (getLocalStorageTheme) {
+      return getLocalStorageTheme;
+    }
+    return "light";
+  };
+
+  const [theme, setTheme] = useState(localTheme());
   const handleThemeChange = () => {
     setTheme((pre) => (pre === "light" ? "dark" : "light"));
   };
+
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
