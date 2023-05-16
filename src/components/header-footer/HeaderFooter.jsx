@@ -6,6 +6,7 @@ import { TiSocialInstagram, TiArrowSortedDown } from "react-icons/ti";
 import { BsTwitter } from "react-icons/bs";
 import { FiSun } from "react-icons/fi";
 import { BsMoonStarsFill } from "react-icons/bs";
+import { IoMdLogOut } from "react-icons/io";
 import webIcon from "../../assets/icon-park-outline_earth.png";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { useAuth } from "../context/AuthContext";
@@ -27,6 +28,7 @@ export const HeaderFooter = ({ children }) => {
   const logOutHandler = () => {
     setAuth(false);
     navigate("/login");
+    localStorage.removeItem("user");
   };
 
   return (
@@ -63,21 +65,34 @@ export const HeaderFooter = ({ children }) => {
               {auth && (
                 <button
                   onClick={() => logOutHandler()}
-                  className="bg-[#fff] cursor-pointer flex gap-[14px] items-center text-black text-[16px] p-[15px] rounded-[20px] font-[700]"
+                  className={`${
+                    width < 769
+                      ? "bg-white cursor-pointer rounded-full w-[40px] h-[40px] p-[5px] flex justify-center items-center"
+                      : "bg-[#fff] cursor-pointer flex gap-[14px] items-center text-black text-[16px] p-[15px] rounded-[20px] font-[700]"
+                  }`}
                 >
-                  Logout <HiOutlineUserCircle size={"25px"} />
+                  {width < 769 ? (
+                    <IoMdLogOut
+                      size={"21px"}
+                      className="text-red-600 hover:bg-opacity-80"
+                    />
+                  ) : (
+                    <>
+                      Logout <HiOutlineUserCircle size={"25px"} />
+                    </>
+                  )}
                 </button>
               )}
             </div>
           </div>
           {children}
-          <div className="w-full bg-[#000000] pb-[72px] px-[20px] md:px-0 pt-[29px] justify-start md:justify-center flex flex-col md:flex-row items-start md:items-center text-[#757575]">
+          <div className="w-full bg-white dark:bg-[#000000] pb-[72px] px-[20px] md:px-0 pt-[29px] justify-start md:justify-center flex flex-col md:flex-row items-start md:items-center text-[#757575]">
             <div className="flex flex-col gap-4 md:mr-[14px] lg:mr-[28px]">
               <h2>Questions? Call 1-844-505-2993</h2>
               <h2>FAQ</h2>
               <h2>Cookie Preferences</h2>
               <div>
-                <button className="bg-[#000000] flex gap-[20px] items-center border-[1px] border-[#333333] p-[15px] text-center">
+                <button className="dark:bg-[#000000] bg-white flex gap-[20px] items-center border-[1px] border-[#333333] p-[15px] text-center">
                   <img src={webIcon} alt="" /> English <TiArrowSortedDown />
                 </button>
               </div>

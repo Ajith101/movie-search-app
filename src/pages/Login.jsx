@@ -19,6 +19,7 @@ const Login = () => {
     }
     navigate("/");
     setAuth(true);
+    localStorage.setItem("user", JSON.stringify(inputForms));
   };
 
   return (
