@@ -6,7 +6,6 @@ import { AuthContext } from "./components/context/AuthContext";
 import ProtectedRoutes, {
   ProtectesRoutForLogin,
 } from "./components/ProtectedRoutes";
-import Testing from "./pages/Testing";
 import { ThemeContext } from "./components/context/ThemeContext";
 import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -24,7 +23,6 @@ const App = () => {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/forgotpassword" element={<ForgotPassword />} />
               </Route>
-              <Route path="/testing" element={<Testing />} />
               <Route element={<ProtectedRoutes />}>
                 <Route path="/" element={<Search />} />
               </Route>
