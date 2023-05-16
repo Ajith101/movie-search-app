@@ -46,7 +46,7 @@ Please leave a ⭐ as motivation if you liked the implementation 😄
 Clone the project
 
 ```bash
-git clone https://github.com/Ajith101/movie-search-app
+git clone https://github.com/Ajith101/movie-search-app.git
 ```
 
 Go to project directory
