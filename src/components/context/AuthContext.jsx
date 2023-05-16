@@ -4,12 +4,10 @@ export const AuthData = createContext();
 
 export const AuthContext = ({ children }) => {
   const authLocal = () => {
-    const localAuth = localStorage.getItem("user");
-    if (localAuth) {
+    if (localStorage.getItem("user")) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   };
 
   const [auth, setAuth] = useState(authLocal());
