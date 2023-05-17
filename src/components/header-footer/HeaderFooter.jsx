@@ -12,6 +12,7 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useChangeTheme } from "../context/ThemeContext";
+import { useThemeChange } from "../../hooks/useThemeChange";
 
 export const HeaderFooter = ({ children }) => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export const HeaderFooter = ({ children }) => {
   };
 
   // toogle night mode
-  const { theme, handleThemeChange } = useChangeTheme();
+  const { theme, handleThemeChange } = useThemeChange();
 
   const logOutHandler = () => {
     setAuth(false);
